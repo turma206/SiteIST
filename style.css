@@ -65,3 +65,25 @@ button.btn:hover{background:var(--acento);color:#fff}
 #subir.ver{opacity:1;pointer-events:auto}
 @media(max-width:640px){.topo nav a:not([aria-current]){display:none}.escolha{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* CAREN CHATBOT */
+#caren-btn{position:fixed;left:18px;bottom:18px;display:flex;align-items:center;gap:10px;padding:8px 18px 8px 8px;border:0;border-radius:99px;background:var(--grad);color:#fff;font:600 .95rem "DM Sans",sans-serif;cursor:pointer;z-index:900;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+#caren-btn img{width:36px;height:36px;border-radius:50%;background:#fff;object-fit:contain;padding:3px}
+#caren{position:fixed;left:18px;bottom:78px;width:min(380px,calc(100vw - 36px));height:min(540px,calc(100vh - 110px));display:none;flex-direction:column;background:#14142b;border:1px solid var(--borda);border-radius:18px;overflow:hidden;z-index:960;box-shadow:0 16px 48px rgba(0,0,0,.55)}
+#caren.aberto{display:flex}
+.c-topo{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--grad);color:#fff}
+.c-topo img{width:34px;height:34px;border-radius:50%;background:#fff;padding:3px}
+.c-topo b{font-family:"Fraunces",serif;font-size:1.05rem}
+.c-topo small{display:block;opacity:.9;font-size:.78rem}
+.c-topo button{margin-left:auto;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;line-height:1}
+#c-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.c-m{max-width:88%;padding:10px 14px;border-radius:14px;font-size:.93rem;line-height:1.5}
+.c-m p{margin:0 0 8px;font-size:inherit;max-width:none;color:inherit}.c-m p:last-child{margin:0}
+.c-bot{background:var(--painel);border:1px solid var(--borda);align-self:flex-start;border-bottom-left-radius:4px}
+.c-eu{background:var(--roxo);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.c-sug{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 8px}
+.c-sug button{font:inherit;font-size:.82rem;padding:6px 12px;border-radius:99px;border:1px solid var(--roxo);background:transparent;color:var(--texto);cursor:pointer}
+.c-sug button:hover{background:var(--roxo)}
+#c-form{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--borda)}
+#c-in{flex:1;padding:10px 14px;border-radius:99px;border:1px solid var(--borda);background:var(--painel);color:var(--texto);font:inherit;font-size:.93rem}
+#c-form button{border:0;border-radius:99px;padding:0 18px;background:var(--roxo);color:#fff;font:600 .9rem "DM Sans",sans-serif;cursor:pointer}
+@media(max-width:640px){#caren-btn span{display:none}#caren-btn{padding:8px}}
