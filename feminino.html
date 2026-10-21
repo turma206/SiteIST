@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISTs - Feminina</title>
+<link rel="icon" href="logopdst.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&family=Fraunces:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="tema-f" data-genero="f">
+<div id="progresso"></div>
+<header class="topo">
+  <button class="botao-menu" aria-label="Abrir menu" aria-expanded="false"><img src="logopdst.png" alt=""></button>
+  <a class="marca" href="index.html">ISTs</a>
+  <nav aria-label="Principal">
+    <a href="index.html">Início</a><a href="masculino.html">Masculino</a><a href="feminino.html" aria-current="page">Feminino</a>
+  </nav>
+</header>
+<div id="veu" class="veu"></div>
+<nav id="menu" class="menu" aria-label="Seções">
+  <a href="#intro">Introdução</a>
+  <a href="#lista">ISTs mais comuns</a>
+  <a href="#sintomas">Sintomas</a>
+  <a href="#prevencao">Prevenção</a>
+  <a href="#faq-sec">Perguntas</a>
+  <a href="#quiz-secao">Mito ou verdade</a>
+  <a href="#check-secao">Autocuidado</a>
+  <a href="#podcast">Podcast</a>
+  <a href="#conclusao">Conclusão</a>
+</nav>
+
+<main>
+<section class="hero" id="intro">
+  <div class="fio"></div>
+  <h1>ISTs na saúde feminina</h1>
+  <p>Em muitas mulheres as ISTs passam sem sintomas e podem afetar a fertilidade e a gravidez. Informação e exames em dia fazem diferença.</p>
+</section>
+
+<section class="secao" id="lista">
+  <h2>ISTs mais comuns</h2>
+  <input type="search" id="busca" placeholder="Buscar por nome ou sintoma" aria-label="Buscar IST">
+  <div class="grade" id="ists"></div>
+</section>
+
+<section class="secao" id="sintomas">
+  <h2>Sintomas</h2>
+  <p>Entre os sinais estão alterações no corrimento, coceira, dor na relação, dor pélvica, feridas ou verrugas e ardência ao urinar.</p>
+  <div class="destaque">Muitas ISTs não apresentam sintomas iniciais, por isso consultas e exames periódicos são importantes.</div>
+</section>
+
+<section class="secao" id="prevencao">
+  <h2>Prevenção</h2>
+  <p>Preservativo (masculino ou interno), vacinas, Papanicolau, pré-natal completo e acompanhamento ginecológico ajudam na prevenção.</p>
+  <div class="grade">
+    <div class="cartao"><h3>Preservativo</h3><p>Use em toda relação, do começo ao fim. Gratuito no SUS.</p></div>
+    <div class="cartao"><h3>Vacinas</h3><p>HPV e hepatite B. Leve a caderneta à unidade de saúde.</p></div>
+    <div class="cartao"><h3>PrEP</h3><p>Medicamento diário que previne o HIV para quem tem maior chance de exposição.</p></div>
+    <div class="cartao"><h3>PEP</h3><p>Em até 72 horas após uma situação de risco. Quanto antes, melhor.</p></div>
+    <div class="cartao"><h3>Testagem</h3><p>Teste ao menos uma vez por ano e sempre que houver parceiro novo.</p></div>
+  </div>
+</section>
+
+<section class="secao" id="faq-sec">
+  <h2>Perguntas frequentes</h2>
+  <div id="faq"></div>
+</section>
+
+<section class="secao" id="quiz-secao">
+  <h2 id="quiz-titulo">Mito ou verdade?</h2>
+  <div class="cartao" id="quiz"></div>
+</section>
+
+<section class="secao" id="check-secao">
+  <h2>Checklist de autocuidado</h2>
+  <p>Marque o que já está em dia. O progresso fica salvo neste navegador.</p>
+  <div class="cartao" id="check"></div>
+</section>
+
+<section class="secao" id="podcast">
+  <h2>Podcast</h2>
+  <p>Assista ao nosso podcast sobre o tema.</p>
+  <div class="player" data-yt="SEU_ID_AQUI"></div>
+</section>
+
+<section class="secao" id="conclusao">
+  <h2>Conclusão</h2>
+  <p>Informação, testagem e proteção andam juntas. Cuidar da saúde sexual é cuidar de si e de quem está com você.</p>
+  <p><a href="masculino.html">Ver o guia masculino</a> · <a href="index.html">Voltar ao início</a></p>
+</section>
+</main>
+
+<footer class="rodape">
+  <p>Conteúdo educativo, não substitui consulta com profissional de saúde.</p>
+  <p>Teste rápido, preservativos, PrEP e PEP são gratuitos no SUS. Dúvidas: Disque Saúde 136.</p>
+</footer>
+<button id="subir" aria-label="Voltar ao topo">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
