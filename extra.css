@@ -1,0 +1,15 @@
+/* extra.css - estilos dos componentes novos. Carregue DEPOIS do style.css. */
+.pular{position:absolute;left:-999px;top:0;background:#fff;color:#000;padding:8px 12px;z-index:1000}
+.pular:focus{left:8px;top:8px}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #1a73e8;outline-offset:2px}
+.cartao.largo{display:block;margin-top:14px;text-decoration:none;color:inherit}
+.alerta{border-left:4px solid #c0392b;background:rgba(192,57,43,.09);padding:14px 16px;border-radius:8px;margin:14px 0}
+.alerta h3{margin:0 0 6px}
+.alerta p{margin:0 0 6px}
+.alerta ul{margin:6px 0 0;padding-left:20px}
+details.d{border:1px solid rgba(128,128,128,.35);border-radius:10px;padding:10px 14px;margin:8px 0}
+details.d summary{cursor:pointer;font-weight:600}
+details.d p{margin:8px 0 0}
+.lista-simples{padding-left:20px;margin:8px 0}
+.lista-simples li{margin:6px 0}
+.preencher{background:rgba(241,196,15,.25);padding:0 4px;border-radius:4px}
