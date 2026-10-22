@@ -1,6 +1,8 @@
+
 (function(){
 const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 const AJUDA='Procure uma <b>UBS</b> ou ligue para o <b>Disque Saúde 136</b>.';
+
 const KB=[
 {k:[" oi "," ola ","bom dia","boa tarde","boa noite"," e ai "],r:"<p>Oi! Eu sou a Caren 💜 Posso explicar sobre ISTs, prevenção, testes e onde buscar ajuda. Escolha uma sugestão ou escreva sua dúvida.</p>"},
 {k:["obrigad","valeu","brigad"],r:"<p>Por nada! Se surgir outra dúvida, é só perguntar.</p>"},
@@ -31,28 +33,68 @@ const KB=[
 {k:["beijo","abraco","vaso","banheiro","talher","pega"],r:"<p>Abraço, beijo no rosto, talheres, banheiro e piscina <b>não transmitem</b> HIV. Algumas ISTs, como herpes e sífilis, podem passar por contato direto com lesões, inclusive em beijos, se houver ferida.</p>"},
 {k:["quem sao","caren","voce","bot"],r:"<p>Sou a <b>Caren</b>, assistente virtual deste site. Respondo com informações educativas prontas, <b>não substituo</b> consulta e não faço diagnóstico.</p>"}
 ];
+
 const SUG=["Quais os sintomas?","Onde fazer teste?","O que é PrEP?","Como usar camisinha?","Tem cura?"];
-const html=`<button id="caren-btn" aria-expanded="false" aria-controls="caren"><img src="logopdst.png" alt=""><span>Caren ChatBot</span></button>
+
+const html=`<button id="caren-btn" aria-expanded="false" aria-controls="caren"><img src="caren.png" alt="CarenBOT"><span>Caren ChatBot</span></button>
 <section id="caren" role="dialog" aria-label="Caren ChatBot">
-<div class="c-topo"><img src="logopdst.png" alt=""><div><b>Caren ChatBot</b><small>Tira-dúvidas sobre ISTs</small></div><button id="c-x" aria-label="Fechar chat">×</button></div>
+<div class="c-topo"><img src="caren.png" alt="CarenBOT"><div><b>Caren ChatBot</b><small>Tira-dúvidas sobre ISTs</small></div><button id="c-x" aria-label="Fechar chat">×</button></div>
 <div id="c-msgs" aria-live="polite"></div><div class="c-sug" id="c-sug"></div>
 <form id="c-form"><input id="c-in" placeholder="Digite sua dúvida" autocomplete="off" aria-label="Sua dúvida"><button>Enviar</button></form></section>`;
+
 document.body.insertAdjacentHTML("beforeend",html);
+
 const $=s=>document.querySelector(s),box=$("#caren"),btn=$("#caren-btn"),msgs=$("#c-msgs");
 let iniciou=false;
-function add(t,c,h){const d=document.createElement("div");d.className="c-m "+c;if(h)d.innerHTML=t;else d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight}
+
+function add(t,c,h){
+  const d=document.createElement("div");
+  d.className="c-m "+c;
+  if(h)d.innerHTML=t;
+  else d.textContent=t;
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
 function responder(q){
-  const n=" "+norm(q).replace(/[^a-z0-9 ]/g," ")+" ";let best=null,sc=0;
-  KB.forEach(e=>{const s=e.k.filter(k=>n.includes(norm(k))).reduce((a,k)=>a+k.length,0);if(s>sc){sc=s;best=e}});
+  const n=" "+norm(q).replace(/[^a-z0-9 ]/g," ")+" ";
+  let best=null,sc=0;
+  KB.forEach(e=>{
+    const s=e.k.filter(k=>n.includes(norm(k))).reduce((a,k)=>a+k.length,0);
+    if(s>sc){sc=s;best=e}
+  });
   add(best?best.r:"<p>Não encontrei essa resposta pronta. 😕 Tente perguntar sobre sintomas, teste, prevenção, vacina, PrEP, PEP ou uma IST específica. Para dúvidas pessoais, "+AJUDA.charAt(0).toLowerCase()+AJUDA.slice(1)+"</p>","c-bot",true);
 }
-function enviar(q){q=q.trim();if(!q)return;add(q,"c-eu");setTimeout(()=>responder(q),350)}
-function abrir(a){box.classList.toggle("aberto",a);btn.setAttribute("aria-expanded",a);
-  if(a&&!iniciou){iniciou=true;add("<p>Oi! Eu sou a <b>Caren</b> 💜 Tiro dúvidas sobre ISTs, prevenção e testes. Não faço diagnóstico, para isso procure um profissional de saúde.</p>","c-bot",true)}
-  if(a)$("#c-in").focus()}
+
+function enviar(q){
+  q=q.trim();
+  if(!q)return;
+  add(q,"c-eu");
+  setTimeout(()=>responder(q),350);
+}
+
+function abrir(a){
+  box.classList.toggle("aberto",a);
+  btn.setAttribute("aria-expanded",a);
+  if(a&&!iniciou){
+    iniciou=true;
+    add("<p>Oi! Eu sou a <b>Caren</b> 💜 Tiro dúvidas sobre ISTs, prevenção e testes. Não faço diagnóstico, para isso procure um profissional de saúde.</p>","c-bot",true);
+  }
+  if(a)$("#c-in").focus();
+}
+
 $("#c-sug").innerHTML=SUG.map(s=>`<button type="button">${s}</button>`).join("");
-$("#c-sug").onclick=e=>{if(e.target.tagName==="BUTTON")enviar(e.target.textContent)};
-$("#c-form").onsubmit=e=>{e.preventDefault();enviar($("#c-in").value);$("#c-in").value=""};
-btn.onclick=()=>abrir(!box.classList.contains("aberto"));$("#c-x").onclick=()=>{abrir(false);btn.focus()};
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&box.classList.contains("aberto"))abrir(false)});
+$("#c-sug").onclick=e=>{
+  if(e.target.tagName==="BUTTON")enviar(e.target.textContent);
+};
+$("#c-form").onsubmit=e=>{
+  e.preventDefault();
+  enviar($("#c-in").value);
+  $("#c-in").value="";
+};
+btn.onclick=()=>abrir(!box.classList.contains("aberto"));
+$("#c-x").onclick=()=>{abrir(false);btn.focus()};
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&box.classList.contains("aberto"))abrir(false);
+});
 })();
