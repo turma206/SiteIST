@@ -1,0 +1,11 @@
+/* Complemento visual da atualização do SiteIST. Mantém style.css e extra.css. */
+.hero-inicio{padding-top:78px}
+.sobretitulo{font-size:.78rem!important;letter-spacing:.16em;font-weight:600;color:var(--acento)!important;margin-bottom:12px}
+.hero-inicio h1{max-width:18ch}
+.chamada-dado{margin:28px 0;padding:22px 24px;background:linear-gradient(135deg,rgba(224,122,143,.14),rgba(123,127,214,.14));border:1px solid var(--borda);border-left:5px solid var(--acento);border-radius:14px}
+.chamada-dado>strong{display:block;font-family:"Fraunces",Georgia,serif;font-size:1.3rem;margin-bottom:8px}
+.chamada-dado p{margin:0 0 8px}
+.chamada-dado .nota-dado,.nota-dado{font-size:.82rem;color:var(--suave);margin-top:8px}
+.frase-final{font-weight:600;font-size:1.08rem;color:var(--texto)}
+#projeto .cartao p:last-child{margin-bottom:0}
+@media(max-width:640px){.hero-inicio{padding-top:48px}.chamada-dado{padding:18px}}
